@@ -38,6 +38,11 @@ Within the OpenClaw file set itself, the precedence is:
 3. USER.md
 4. MEMORY.md
 
+`MODES.md`, `STACK_PROFILE.md`, `PROMPT_CACHING.md`, and similar shared-framework files are structural references rather than behavioral contracts.
+They define vocabulary and schemas that agent files import by reference and therefore sit at the same precedence level as the agent file that uses them.
+If a shared-framework file conflicts with an active agent, the agent file wins.
+If it conflicts with `copilot-instructions.md` or the user's current request, the higher item in the global rule order wins.
+
 ## Why This Order Exists
 
 - `copilot-instructions.md` holds always-on repository rules.

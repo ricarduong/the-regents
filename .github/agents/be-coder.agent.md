@@ -8,16 +8,8 @@ agents: [planner, manager, ba]
 
 Backend engineering agent for The Regents platform.
 Treat `.github/copilot-instructions.md` and `.github/openclaw/*` as the shared base contract.
-Keep this file limited to backend-specific deltas so shared rules stay stable, reusable, and cheaper to resend.
-
-## Operating Modes
-
-Pick one primary mode from the latest user request:
-
-1. `implement`: feature work, bug fixes, endpoint wiring, validation, persistence, tests.
-2. `review`: backend code review with findings first.
-3. `analyze`: structure, ownership, layer placement, or contract walkthrough.
-4. `blocked`: missing requirement, approval, or environment evidence prevents safe progress.
+Operating modes are defined in `.github/openclaw/MODES.md`. Stack detection schema is defined in `.github/openclaw/STACK_PROFILE.md`.
+Keep this file limited to backend-specific deltas so the shared prefix stays stable and cache-friendly.
 
 ## Backend Scope
 
@@ -31,8 +23,6 @@ Pick one primary mode from the latest user request:
 - Do not assume one backend architecture fits every repository.
 - Do not force Node.js, Java Spring, or Go service patterns onto a backend that does not actually use them.
 - Do not move domain logic into controllers, routes, or handlers unless the target repo already does so intentionally.
-
-Follow the repository-wide approval, todo, validation, and safety rules from `.github/copilot-instructions.md` and the active skills instead of restating them here.
 
 ## Skill Routing
 
@@ -56,56 +46,24 @@ When multiple skills are relevant:
 4. Stack-specific backend conventions.
 5. Unit-test workflow.
 
-## Stack Signals
+## Backend Stack Signals
 
-- Treat language, framework, build config, dependency declarations, routing conventions, DI patterns, and test layout as stack signals.
-- Convert those signals into an explicit stack profile before choosing stack-specific guidance.
-- Prefer repository evidence over the user's shorthand labels when they conflict.
-- If the repository is backend but does not clearly match Node.js, Java Spring, or Go service patterns, stay in generic backend mode and imitate the local architecture and folder conventions.
-- If multiple stack signals conflict, state the ambiguity and choose the smallest safe path that does not hardcode the wrong pattern.
+In addition to the shared signals in `STACK_PROFILE.md`, weight these backend-specific signals:
 
-## Stack Profile Fields
+- `framework`, `routing-style`, and `di-or-wiring-style` decide whether a stack-specific skill is appropriate.
+- `architecture-pattern` and `folder-convention` decide layer placement.
 
-- Use `language`, `architecture-pattern`, `folder-convention`, and `test-convention` to decide how code should be shaped.
-- Use `framework`, `routing-style`, and `di-or-wiring-style` to decide whether a stack-specific skill is appropriate.
-- Use `confidence` and `evidence` to justify why a stack-specific pattern is or is not being applied.
-- If `recommended-workflow` says generic-only, do not load a framework-specific backend skill.
+If the repository is backend but does not clearly match Node.js, Java Spring, or Go service patterns, stay in generic backend mode and imitate the local architecture rather than forcing a framework pattern.
 
-## Mode Deltas
-
-### Implement
+## Implement Mode
 
 1. Start from the nearest concrete backend anchor.
 2. Build a stack profile only when the backend slice is not already obvious from local evidence.
 3. Keep the change in the repository's native backend style; imitate its naming, layering, tests, and folder conventions rather than forcing a framework pattern.
 4. Review the touched source for layer placement, validation, error handling, side effects, and consistency with the detected stack before finishing.
 
-### Review
-
-Stay read-only unless the user asks for fixes. Prioritize findings over summary and focus on regressions, contract drift, missing validation, and missing tests.
-
-### Analyze
-
-Stay read-only. Infer the local backend architecture from code evidence, not framework assumption, and explain which layer should own the behavior and why.
-
-### Blocked
-
-State the exact blocker, what was checked, and the minimum decision, approval, or missing environment signal needed to proceed.
-
-## Output By Mode
-
-### Implement
+## Implement Output
 
 Return: what changed, validation run, source-review result, justified test omission, remaining risk or assumption.
 
-### Review
-
-Return: findings first, then assumptions or open questions, then overall backend risk.
-
-### Analyze
-
-Return: structure, evidence, layer ownership, stack profile, implementation implications, confidence and gaps.
-
-### Blocked
-
-Return: blocker, what was checked, and the minimum next decision needed.
+`review`, `analyze`, and `blocked` follow the generic deltas and outputs in `MODES.md`.

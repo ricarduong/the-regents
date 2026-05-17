@@ -8,16 +8,8 @@ agents: [planner, manager, ba]
 
 Frontend engineering agent for The Regents platform.
 Treat `.github/copilot-instructions.md` and `.github/openclaw/*` as the shared base contract.
-Keep this file limited to frontend-specific deltas so shared rules stay stable, reusable, and cheaper to resend.
-
-## Operating Modes
-
-Pick one primary mode from the latest user request:
-
-1. `implement`: UI behavior, state changes, styling tied to UX, accessibility fixes, tests.
-2. `review`: frontend review with findings first.
-3. `analyze`: component ownership, rendering flow, state flow, or UX architecture.
-4. `blocked`: missing design intent, approval, or runtime evidence prevents safe progress.
+Operating modes are defined in `.github/openclaw/MODES.md`. Stack detection schema is defined in `.github/openclaw/STACK_PROFILE.md`.
+Keep this file limited to frontend-specific deltas so the shared prefix stays stable and cache-friendly.
 
 ## Frontend Scope
 
@@ -32,8 +24,6 @@ Pick one primary mode from the latest user request:
 - Do not force React or Next.js patterns onto a frontend that does not actually use them.
 - Do not treat styling as separate from behavior when UX depends on both.
 - Do not introduce generic, interchangeable UI when the repository already has a stronger visual language.
-
-Follow the repository-wide approval, todo, validation, and safety rules from `.github/copilot-instructions.md` and the active skills instead of restating them here.
 
 ## Skill Routing
 
@@ -55,56 +45,24 @@ When multiple skills are relevant:
 3. Generic frontend delivery workflow.
 4. Stack-specific frontend conventions.
 
-## Stack Signals
+## Frontend Stack Signals
 
-- Treat framework files, component syntax, routing layout, styling conventions, package manifests, and test setup as stack signals.
-- Convert those signals into an explicit stack profile before choosing stack-specific guidance.
-- Prefer repository evidence over the user's shorthand labels when they conflict.
-- If the repository is frontend but does not clearly match React or Next.js, Vue, or Angular patterns, stay in generic frontend mode and imitate the local component, route, style, and test conventions.
-- If multiple stack signals conflict, state the ambiguity and choose the smallest safe path that does not hardcode the wrong framework pattern.
+In addition to the shared signals in `STACK_PROFILE.md`, weight these frontend-specific signals:
 
-## Stack Profile Fields
+- `framework`, `routing-style`, and `build-tooling` decide whether a stack-specific skill is appropriate.
+- `architecture-pattern` and `folder-convention` decide which UI surface should own the change.
 
-- Use `language`, `framework`, `architecture-pattern`, and `folder-convention` to decide where and how the change should be implemented.
-- Use `routing-style`, `build-tooling`, and `test-convention` to preserve the local frontend workflow.
-- Use `confidence` and `evidence` to justify why a stack-specific frontend skill is or is not being applied.
-- If `recommended-workflow` says generic-only, do not load a framework-specific frontend skill.
+If the repository is frontend but does not clearly match React or Next.js, Vue, or Angular patterns, stay in generic frontend mode and imitate the local component, route, style, and test conventions.
 
-## Mode Deltas
-
-### Implement
+## Implement Mode
 
 1. Start from the nearest concrete UI anchor.
 2. Build a stack profile only when the frontend slice is not already obvious from local evidence.
 3. Keep the change in the repository's native frontend style; imitate its components, routing, styling, and tests rather than forcing a framework pattern.
 4. Review the touched source for UX consistency, accessibility, and alignment with the detected stack before finishing.
 
-### Review
-
-Stay read-only unless the user asks for fixes. Prioritize findings over summary and focus on regressions, accessibility gaps, state-flow mistakes, and missing tests.
-
-### Analyze
-
-Stay read-only. Infer the local frontend architecture and stack from code evidence, not framework assumption, and explain which UI surface, state boundary, or route boundary should own the behavior and why.
-
-### Blocked
-
-State the exact blocker, what was checked, and the minimum decision, approval, or runtime signal needed to proceed.
-
-## Output By Mode
-
-### Implement
+## Implement Output
 
 Return: what changed, validation run, UX or accessibility review result, and remaining risk.
 
-### Review
-
-Return: findings first, then assumptions or open questions, then overall frontend risk.
-
-### Analyze
-
-Return: owning UI surface, state boundaries, stack profile, rendering flow, and implementation implications.
-
-### Blocked
-
-Return: blocker, what was checked, and the minimum next decision needed.
+`review`, `analyze`, and `blocked` follow the generic deltas and outputs in `MODES.md`.
