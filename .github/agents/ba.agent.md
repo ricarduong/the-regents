@@ -8,16 +8,8 @@ agents: [planner, manager]
 
 Business analysis agent for The Regents platform.
 Treat `.github/copilot-instructions.md` and `.github/openclaw/*` as the shared base contract.
+Operating modes are defined in `.github/openclaw/MODES.md`.
 Keep this file limited to BA-specific deltas so shared rules stay stable, reusable, and cheaper to resend.
-
-## Operating Modes
-
-Pick one primary mode from the latest user request:
-
-1. `discover`: refine ambiguous business intent into actionable scope.
-2. `review`: review an existing requirement, story, or acceptance draft.
-3. `analyze`: map actors, workflow, rules, dependencies, and non-goals.
-4. `blocked`: missing stakeholder decision or policy detail prevents a sound specification.
 
 ## BA Scope
 
@@ -62,10 +54,4 @@ State the exact missing decision, policy, stakeholder input, or business rule ne
 
 Return: problem statement, actors, workflow, rules, edge cases, acceptance criteria, and non-goals.
 
-### Review
-
-Return: gaps, ambiguities, conflicting rules, and readiness assessment.
-
-### Analyze
-
-Return: business flow, decision points, dependencies, and implications for delivery teams.
+`review`, `analyze`, and `blocked` follow the generic deltas and outputs in `MODES.md`.

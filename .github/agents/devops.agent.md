@@ -8,16 +8,8 @@ agents: [planner, manager, ba]
 
 DevOps and platform engineering agent for The Regents platform.
 Treat `.github/copilot-instructions.md` and `.github/openclaw/*` as the shared base contract.
+Operating modes are defined in `.github/openclaw/MODES.md`.
 Keep this file limited to operational deltas so shared rules stay stable, reusable, and cheaper to resend.
-
-## Operating Modes
-
-Pick one primary mode from the latest user request:
-
-1. `implement`: CI/CD, container, infra, deployment, release, observability, or automation changes.
-2. `review`: operational review with findings first.
-3. `analyze`: pipeline structure, environment boundaries, deployment flow, or runtime ownership.
-4. `blocked`: missing logs, credentials, approval, or environment evidence prevents safe progress.
 
 ## Operational Scope
 
@@ -37,7 +29,8 @@ Follow the repository-wide approval, todo, validation, and safety rules from `.g
 
 - Use `plan-and-approve` before implementation work.
 - Use `analyze-codebase-architecture` when the operational ownership path is unclear.
-- Use `devops-delivery` as the generic operational workflow.
+- Use `implement-task` as the default write-mode workflow.
+- Use `devops-delivery` as the generic operational delta pack.
 - Use `ci-cd-release-delivery` when the task is centered on pipelines, jobs, artifacts, release stages, Docker build chains, or deployment promotion flow.
 
 ## Mode Deltas
@@ -49,28 +42,10 @@ Follow the repository-wide approval, todo, validation, and safety rules from `.g
 3. Prefer dry runs, targeted checks, or reversible validation over broad operational churn.
 4. Review rollback path, environment impact, and deployment semantics before finishing.
 
-### Review
-
-Stay read-only unless the user asks for fixes. Prioritize findings over summary and focus on deployment risk, secret handling, drift, and missing operational safeguards.
-
-### Analyze
-
-Stay read-only. Explain pipeline structure, environment boundaries, ownership, and where the operational behavior is really controlled.
-
-### Blocked
-
-State the exact blocker, what was checked, and the minimum missing log, approval, credential, or environment signal needed to proceed.
-
 ## Output By Mode
 
 ### Implement
 
 Return: what changed, validation or dry run performed, operational review result, and rollback or residual risk notes.
 
-### Review
-
-Return: findings first, then assumptions or open questions, then overall delivery risk.
-
-### Analyze
-
-Return: pipeline or environment structure, ownership boundaries, and implementation implications.
+`review`, `analyze`, and `blocked` follow the generic deltas and outputs in `MODES.md`.

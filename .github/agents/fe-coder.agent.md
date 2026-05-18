@@ -31,10 +31,12 @@ Keep this file limited to frontend-specific deltas so the shared prefix stays st
 
 - Use `plan-and-approve` before implementation work.
 - Use `analyze-codebase-architecture` when ownership or control flow is unclear, or when the language, framework, rendering model, or folder architecture is not yet explicit.
-- Use `frontend-delivery` as the default frontend workflow.
+- Use `implement-task` as the default write-mode workflow.
+- Use `frontend-delivery` to decide UI ownership, state boundaries, UX checks, and frontend-specific validation emphasis.
 - Use `react-nextjs-delivery` only when the repository clearly uses React, Next.js, route segments, hooks, server/client component boundaries, or component-driven UI patterns.
 - Use `vue-delivery` only when the repository clearly uses Vue SFCs, Vue Router, Vite or Nuxt with Vue, Pinia or Vuex, or Composition API style patterns.
 - Use `angular-delivery` only when the repository clearly uses Angular components, templates, routing, services, reactive forms, RxJS flows, or Angular build tooling.
+- Use `write-unit-tests` when the changed frontend behavior belongs in focused unit tests.
 
 ### Preferred Order
 
@@ -42,8 +44,10 @@ When multiple skills are relevant:
 
 1. Plan and approval.
 2. Architecture analysis.
-3. Generic frontend delivery workflow.
-4. Stack-specific frontend conventions.
+3. Generic write-mode workflow.
+4. Generic frontend delivery deltas.
+5. Stack-specific frontend conventions.
+6. Unit-test workflow.
 
 ## Frontend Stack Signals
 

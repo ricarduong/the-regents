@@ -21,15 +21,16 @@ Keep this skill focused on generic frontend-delivery deltas; load framework-spec
 
 ## Shared Boundary
 
+- This skill does not replace the generic write-mode workflow.
 - This skill does not replace framework-specific frontend conventions when the repository clearly follows one.
 - This skill does not replace design or behavior clarification when the request is still ambiguous.
 
 ## Procedure
 
 1. Identify the owning component, route, or state boundary.
-2. Form one local hypothesis about the failing or desired behavior.
-3. Make the smallest behavior-complete UI change.
-4. Validate with the narrowest test, lint, typecheck, or browser check available.
+2. Refine the change around that UI boundary instead of spreading behavior across unrelated surfaces.
+3. Keep state, rendering logic, and styling responsibilities aligned with the owning UI surface.
+4. Choose the narrowest frontend-appropriate test and validation path for that surface.
 
 ## UI Checks
 

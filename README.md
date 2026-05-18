@@ -35,6 +35,7 @@ If you are new to this repo, start from the file that matches your goal:
 2. Want to understand agent responsibilities: read files under `.github/agents/`.
 3. Want to understand reusable workflows or stack conventions: read files under `.github/skills/`.
 4. Want the shared system contract behind all agents and skills: read files under `.github/openclaw/`.
+5. Want to review prompt quality for caching, context size, or role fit: read `.github/openclaw/PROMPT_REVIEW_CHECKLIST.md`.
 
 Suggested reading order for first-time exploration:
 
@@ -103,6 +104,7 @@ This is the shared contract layer for the whole agent system. It contains the fo
 - `USER.md`: collaboration priorities toward the user.
 - `MEMORY.md`: memory usage and storage rules.
 - `PROMPT_CACHING.md`: cache-aware authoring rules for agents and skills.
+- `PROMPT_REVIEW_CHECKLIST.md`: fast review checklist for prompt caching, context budget, workflow fit, and role accuracy.
 
 These files do not solve individual tasks directly. They define the shared behavioral frame that keeps agents and skills consistent.
 

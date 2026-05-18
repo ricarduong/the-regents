@@ -1,6 +1,6 @@
 ---
 name: nodejs-express-inversify
-description: 'Repository-specific backend conventions for Node.js, TypeScript, Express, Inversify, and Prisma. Use when: placing backend code in the correct layer, wiring DI bindings, shaping DTOs and interfaces, applying AppError conventions, or following this repo\'s backend patterns after structure is already understood.'
+description: 'Repository-specific backend conventions for Node.js, TypeScript, Express, Inversify, and Prisma. Use when: implementing within an already identified backend layer, wiring DI bindings, shaping DTOs and interfaces, applying AppError conventions, or following this repo\'s backend patterns after structure is already understood.'
 argument-hint: 'Describe what resource or feature to implement (e.g. "add Department entity with CRUD")'
 ---
 
@@ -26,14 +26,15 @@ Use it after the target slice is known and you need to keep the change consisten
 
 - This skill does not replace the main implementation workflow.
 - This skill does not replace architecture inference.
+- This skill does not decide the generic backend ownership boundary by itself.
 - This skill does not replace the primary unit-test workflow.
 
 ## What This Skill Owns
 
 This skill should answer questions like:
 
-- Which layer should this backend change live in?
-- How should a new controller, service, repository, DTO, or interface be shaped in this repo?
+- Given that the owning layer is known, how should that controller, service, repository, DTO, or interface be shaped in this repo?
+- How should repository-specific files, interfaces, DTOs, and bindings be named and wired in this repo?
 - Where do DI tokens and bindings go?
 - Which error and logging conventions should be preserved?
 - Which HTTP, DTO, DI, and repository conventions fit the changed backend code?

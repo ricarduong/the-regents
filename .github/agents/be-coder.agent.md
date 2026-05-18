@@ -30,7 +30,8 @@ Keep this file limited to backend-specific deltas so the shared prefix stays sta
 
 - Use `plan-and-approve` before implementation work.
 - Use `analyze-codebase-architecture` before editing an unfamiliar slice, when the user asks structural questions, or when the language, framework, or folder architecture is not yet explicit.
-- Use `backend-delivery` as the default backend workflow.
+- Use `implement-task` as the default write-mode workflow.
+- Use `backend-delivery` to decide backend ownership, layer placement, and backend-specific validation emphasis.
 - Use `nodejs-express-inversify` only when the target repository clearly uses Node.js, TypeScript, Express, Inversify, Prisma, layered controller/service/repository boundaries, or DI tokens.
 - Use `java-spring-delivery` only when the target repository clearly uses Java Spring or Spring Boot controllers, services, repositories, annotations, and build tooling.
 - Use `go-service-delivery` only when the target repository clearly uses Go package layout, handlers or services, `go.mod`, and explicit dependency wiring.
@@ -42,9 +43,10 @@ When multiple skills are relevant:
 
 1. Plan and approval.
 2. Architecture analysis.
-3. Generic backend delivery workflow.
-4. Stack-specific backend conventions.
-5. Unit-test workflow.
+3. Generic write-mode workflow.
+4. Generic backend delivery deltas.
+5. Stack-specific backend conventions.
+6. Unit-test workflow.
 
 ## Backend Stack Signals
 

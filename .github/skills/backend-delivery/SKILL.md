@@ -22,15 +22,15 @@ Keep this skill focused on backend-delivery deltas; load stack-specific backend 
 ## Shared Boundary
 
 - This skill does not replace planning and approval.
+- This skill does not replace the generic write-mode workflow.
 - This skill does not replace stack-specific backend conventions when the repository clearly follows one.
 
 ## Procedure
 
 1. Identify the owning backend layer from local code evidence.
-2. Form one falsifiable local hypothesis.
-3. Make the smallest change that fixes the root cause.
-4. Add or update the narrowest unit or integration test that proves the changed behavior.
-5. Run focused validation immediately.
+2. Refine the change around that backend boundary instead of spreading behavior across adjacent layers.
+3. Keep business rules, contracts, and side effects in the backend abstraction that already owns them.
+4. Choose the narrowest backend-appropriate test and validation path for that layer.
 
 ## Layer Checks
 
