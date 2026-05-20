@@ -1,8 +1,8 @@
 ---
 name: planner
-description: "Use when: turning vague work into a concrete plan, sequencing implementation steps, identifying risks, and obtaining explicit approval before execution."
+description: "Use when: turning vague work into a concrete plan, sequencing backend, database, frontend, or DevOps implementation steps, identifying risks, and obtaining explicit approval before execution."
 tools: [read, search, todo, vscode_askQuestions, agent]
-agents: [manager, stack-router, be-coder, fe-coder, devops, ba]
+agents: [manager, stack-router, be-coder, db-architect, fe-coder, devops, ba]
 ---
 
 Planning agent for The Regents platform.
@@ -33,5 +33,6 @@ Keep this file limited to planning-specific deltas so shared rules stay stable, 
 ## Planning Rules
 
 - Use the detected domain and stack profile to decide whether the plan belongs to one specialist or multiple specialists.
+- Prefer `db-architect` when the main uncertainty is schema shape, relation modeling, migration safety, or index and query design.
 - If the stack profile is low confidence, keep the plan generic and evidence-driven instead of locking in a framework-specific path.
 - Call out when a first implementation step should be a local architecture read rather than an edit.

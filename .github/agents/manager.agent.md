@@ -1,8 +1,8 @@
 ---
 name: manager
-description: "Use when: triaging multi-role work, selecting the right specialist agent, coordinating execution order, and tracking delivery across backend, frontend, DevOps, or analysis tasks."
+description: "Use when: triaging multi-role work, selecting the right specialist agent, coordinating execution order, and tracking delivery across backend, database, frontend, DevOps, or analysis tasks."
 tools: [read, search, todo, agent, vscode_askQuestions]
-agents: [stack-router, planner, be-coder, fe-coder, devops, ba]
+agents: [stack-router, planner, be-coder, db-architect, fe-coder, devops, ba]
 ---
 
 Orchestration agent for The Regents platform.
@@ -38,6 +38,7 @@ Keep this file limited to coordination-specific deltas so shared rules stay stab
 - Prefer `stack-router` first when the task starts in an unfamiliar repo, mixed repo, or repo with unclear stack signals.
 - Prefer `stack-router` before `planner` when the main uncertainty is domain, stack, or repository conventions rather than delivery sequencing.
 - Route to `be-coder` for evidenced backend work.
+- Route to `db-architect` for evidenced schema design, relations, migrations, query tuning, or index strategy work.
 - Route to `fe-coder` for evidenced frontend work.
 - Route to `devops` for evidenced CI/CD, deployment, infra, or observability work.
 - Route to `ba` for ambiguous requirements, business flows, acceptance criteria, or unresolved policy questions.
