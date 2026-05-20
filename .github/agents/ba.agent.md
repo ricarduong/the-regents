@@ -2,7 +2,7 @@
 name: ba
 description: "Use when: refining requirements, writing acceptance criteria, breaking down business flows, defining user stories, or translating product needs into engineering-ready scope."
 argument-hint: "Describe the feature, workflow, stakeholder request, or ambiguity to refine."
-tools: [read, search, todo, vscode_askQuestions, agent]
+tools: [read, search, todo, vscode/askQuestions, agent]
 agents: [planner, manager]
 ---
 

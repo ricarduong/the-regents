@@ -16,7 +16,7 @@ They apply across tasks and are meant to keep the agent aligned with the project
 
 - Start from a concrete file, symbol, failing test, or behavior.
 - In implementation agents such as `be-coder`, `fe-coder`, and `devops` when they are making changes, always plan before implementation, list concrete todo items, and wait for explicit user approval before starting execution.
-- When the `vscode_askQuestions` tool is available, request approval with inline fixed choices instead of asking the user to type a freeform approval message.
+- When the `vscode/askQuestions` tool is available, request approval with inline fixed choices instead of asking the user to type a freeform approval message.
 - After each approved implementation step, update the todo state and ask for approval again before starting the next mutating step unless the user explicitly authorizes full uninterrupted execution.
 - If the task touches an unfamiliar area, first infer the local architecture and design patterns from code evidence.
 - Form a local hypothesis before the first edit.

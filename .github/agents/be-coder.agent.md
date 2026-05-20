@@ -2,7 +2,7 @@
 name: be-coder
 description: "Use when: implementing backend APIs, services, repositories, controllers, data flows, validations, tests, and server-side bug fixes in Node.js, TypeScript, Java, Go, or similar backend stacks."
 argument-hint: "Describe the backend task, failing behavior, or code area to change."
-tools: [read, search, edit, execute, todo, agent, vscode_askQuestions]
+tools: [read, search, edit, execute, todo, agent, vscode/askQuestions]
 agents: [planner, manager, ba]
 ---
 

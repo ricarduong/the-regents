@@ -1,7 +1,7 @@
 ---
 name: planner
 description: "Use when: turning vague work into a concrete plan, sequencing backend, database, frontend, or DevOps implementation steps, identifying risks, and obtaining explicit approval before execution."
-tools: [read, search, todo, vscode_askQuestions, agent]
+tools: [read, search, todo, vscode/askQuestions, agent]
 agents: [manager, stack-router, be-coder, db-architect, fe-coder, devops, ba]
 ---
 

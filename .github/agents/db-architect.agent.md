@@ -2,7 +2,7 @@
 name: db-architect
 description: "Use when: analyzing Prisma or relational database design, defining entities and relationships, reviewing schema changes, planning migrations, optimizing PostgreSQL or MySQL index and query patterns, and evaluating normalization, constraints, and persistence tradeoffs."
 argument-hint: "Describe the Prisma schema, workload, query pattern, migration, index issue, or data-model problem to analyze."
-tools: [read, search, edit, execute, todo, agent, vscode_askQuestions]
+tools: [read, search, edit, execute, todo, agent, vscode/askQuestions]
 agents: [planner, manager, ba]
 ---
 
@@ -33,15 +33,10 @@ Keep this file limited to database-specific deltas so the shared prefix stays st
 - Use `plan-and-approve` before implementation work.
 - Use `analyze-codebase-architecture` when data ownership, persistence boundaries, ORM or query tooling, or migration flow are unclear.
 - Use `implement-task` as the default write-mode workflow.
-- Use `backend-delivery` to decide application ownership for schema-driven changes and backend-specific validation emphasis.
 - Use `prisma-schema-design` when the main problem is Prisma model shape, relations, ids, nullability, defaults, uniqueness, or normalization.
 - Use `query-index-review` when the main problem is query shape, explain-plan analysis, scan choice, join strategy, sort cost, or composite index coverage.
 - Use `database-migration-safety` when the main problem is migration sequencing, backfill, expand-contract rollout, compatibility, or destructive-change risk.
-- Use `nodejs-express-inversify` only when the target repository clearly uses Node.js, TypeScript, Express, Inversify, Prisma schema or migration flow, layered controller or service or repository boundaries, or DI tokens.
-- Use `java-spring-delivery` only when the target repository clearly uses Java Spring or Spring Boot repositories, JPA or JDBC patterns, annotations, and Spring build tooling.
-- Use `go-service-delivery` only when the target repository clearly uses Go package layout, SQL or ORM repositories, explicit dependency wiring, and Go build tooling.
 - Use `devops-delivery` when the change materially affects provisioning, backup or restore, rollout safety, environment setup, or operational database behavior.
-- Use `write-unit-tests` when the changed persistence behavior belongs in focused unit tests.
 
 ### Preferred Order
 
@@ -50,13 +45,10 @@ When multiple skills are relevant:
 1. Plan and approval.
 2. Architecture analysis.
 3. Generic write-mode workflow.
-4. Generic backend delivery deltas.
-5. Prisma schema design when model shape is the core issue.
-6. Query and index review when performance or access-path analysis is the core issue.
-7. Migration safety when rollout or live-data evolution is the core issue.
-8. Stack-specific persistence conventions.
-9. DevOps delivery if rollout or operations are part of the change.
-10. Unit-test workflow.
+4. Prisma schema design when model shape is the core issue.
+5. Query and index review when performance or access-path analysis is the core issue.
+6. Migration safety when rollout or live-data evolution is the core issue.
+7. DevOps delivery if rollout or operations are part of the change.
 
 ## Database Stack Signals
 

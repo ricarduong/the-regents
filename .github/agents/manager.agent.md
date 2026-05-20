@@ -1,7 +1,7 @@
 ---
 name: manager
 description: "Use when: triaging multi-role work, selecting the right specialist agent, coordinating execution order, and tracking delivery across backend, database, frontend, DevOps, or analysis tasks."
-tools: [read, search, todo, agent, vscode_askQuestions]
+tools: [read, search, todo, agent, vscode/askQuestions]
 agents: [stack-router, planner, be-coder, db-architect, fe-coder, devops, ba]
 ---
 

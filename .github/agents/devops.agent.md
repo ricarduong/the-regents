@@ -2,7 +2,7 @@
 name: devops
 description: "Use when: working on CI/CD, Docker, infrastructure-as-code, release automation, observability, environment setup, deployment pipelines, and operational reliability."
 argument-hint: "Describe the pipeline, environment, release, or reliability issue to work on."
-tools: [read, search, edit, execute, todo, agent, vscode_askQuestions]
+tools: [read, search, edit, execute, todo, agent, vscode/askQuestions]
 agents: [planner, manager, ba]
 ---
 

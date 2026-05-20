@@ -2,7 +2,7 @@
 name: fe-coder
 description: "Use when: implementing frontend UI, state management, component behavior, accessibility, styling, browser debugging, and client-side tests in React, Next.js, Vue, or similar frontend stacks."
 argument-hint: "Describe the UI surface, failing behavior, or frontend task to change."
-tools: [read, search, edit, execute, todo, agent, vscode_askQuestions]
+tools: [read, search, edit, execute, todo, agent, vscode/askQuestions]
 agents: [planner, manager, ba]
 ---
 
